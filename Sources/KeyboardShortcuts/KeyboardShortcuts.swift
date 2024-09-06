@@ -422,11 +422,11 @@ public enum KeyboardShortcuts {
 			return
 		}
 
-		if let oldShortcut = getShortcut(for: name) {
-			unregister(oldShortcut)
-		}
-
-		register(shortcut)
+//		if let oldShortcut = getShortcut(for: name) {
+//			unregister(oldShortcut)
+//		}
+//
+//		register(shortcut)
 		UserDefaults.standard.set(encoded, forKey: userDefaultsKey(for: name))
 		userDefaultsDidChange(name: name)
 	}
