@@ -243,7 +243,7 @@ private let keyToKeyEquivalentString: [KeyboardShortcuts.Key: String] = [
 ]
 
 extension KeyboardShortcuts.Shortcut {
-	@MainActor // `TISGetInputSourceProperty` crashes if called on a non-main thread.
+//	@MainActor // `TISGetInputSourceProperty` crashes if called on a non-main thread.
 	func keyToCharacter() -> String? {
 		// Some characters cannot be automatically translated.
 		if

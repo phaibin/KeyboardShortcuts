@@ -9,7 +9,7 @@ import Carbon
 // Provides a SwiftUI like wrapper function, that feels the same as the normal SwiftUI .keyboardShortcut view extension
 @available(macOS 12.3, *)
 extension View {
-	@MainActor
+//	@MainActor
 	public func keyboardShortcut(_ shortcutName: KeyboardShortcuts.Name) -> some View {
 		KeyboardShortcutView(shortcutName: shortcutName) {
 			self
@@ -19,7 +19,7 @@ extension View {
 
 @available(macOS 11.0, *)
 extension KeyboardShortcuts.Shortcut {
-	@MainActor
+//	@MainActor
 	var swiftKeyboardShortcut: KeyboardShortcut? {
 		if let keyEquivalent = toKeyEquivalent() {
 			return KeyboardShortcut(keyEquivalent, modifiers: toEventModifiers)
@@ -31,7 +31,7 @@ extension KeyboardShortcuts.Shortcut {
 // Holds the state of the shortcut, and changes that state when the shortcut changes
 // This causes the related NSMenuItem to also update (yipeee)
 @available(macOS 12.3, *)
-@MainActor
+//@MainActor
 struct KeyboardShortcutView<Content: View>: View {
 	@State private var shortcutName: KeyboardShortcuts.Name
 	@State private var shortcut: KeyboardShortcuts.Shortcut?
@@ -67,7 +67,7 @@ struct KeyboardShortcutView<Content: View>: View {
 
 @available(macOS 11.0, *)
 extension KeyboardShortcuts.Shortcut {
-	@MainActor
+//	@MainActor
 	func toKeyEquivalent() -> KeyEquivalent? {
 		guard let keyCharacter = keyToCharacter() else {
 			return nil
